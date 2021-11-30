@@ -2,6 +2,7 @@ package com.aep.communicatonpreferences;
 
 import com.aep.communicatonpreferences.controller.ConstructorCommunicationController;
 import com.aep.communicatonpreferences.controller.FieldCommunicationController;
+import com.aep.communicatonpreferences.controller.GeneralPurposesController;
 import com.aep.communicatonpreferences.controller.SetterCommunicationController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,14 +13,17 @@ public class CommunicatonPreferencesApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(CommunicatonPreferencesApplication.class, args);
-       /* FieldCommunicationController fieldCommunicationController = (FieldCommunicationController) context.getBean("fieldCommunicationController");
-        fieldCommunicationController.handleMessage(); */
+        FieldCommunicationController fieldCommunicationController = (FieldCommunicationController) context.getBean("fieldCommunicationController");
+        fieldCommunicationController.handleMessage();
 
-     /*   SetterCommunicationController setterCommunicationController = (SetterCommunicationController)context.getBean("setterCommunicationController");
-        setterCommunicationController.handleMessage(); */
+       SetterCommunicationController setterCommunicationController = (SetterCommunicationController)context.getBean("setterCommunicationController");
+        setterCommunicationController.handleMessage();
 
         ConstructorCommunicationController communicationController = (ConstructorCommunicationController) context.getBean("constructorCommunicationController");
         communicationController.handleMessage();
+
+        GeneralPurposesController generalPurposesController = (GeneralPurposesController) context.getBean("generalPurposesController");
+        generalPurposesController.handleMessage();
 
     }
 
